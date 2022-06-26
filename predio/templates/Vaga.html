@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <ul>
+        <h2>Registro de Vagas</h2>
+        {% for Vaga in Vagas %}
+
+                <li>
+                {{ Vaga.numeroDaVaga }} - {{ Vaga.numeroDoApartamento }}
+                 <div>
+                      <a href="{% url 'delete_Vaga' Vaga.id %}" class="btn btn-danger">Excluir</a>
+                      <a href="{% url 'update_Vaga' Vaga.id %}" class="btn btn-primary">Atualizar</a>
+                  </div>
+                </li>
+            {% endfor %}
+    </ul>
+        <div>
+        <a class="btn btn-primary" href="{% url 'create_Vaga' %}">Adicionar Vaga</a>
+        <a class="btn btn-light" href="{% url 'list_Morador' %}">Voltar</a>
+    </div>
+</div>
+{% endblock %}

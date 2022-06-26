@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <ul>
+        <h2>Registro de Visitantes</h2>
+
+        {% for Visitante in Visitantes %}
+                <li>
+                {{ Visitante.nome }} - {{ Visitante.dataDeNascimento }} - {{ Visitante.cpf }} - {{ Visitante.grauDeParentesco }} - {{ Visitante.grauDeParentesco }} - {{ Visitante.numeroDoApartamento }}
+                 <div>
+                      <a href="{% url 'delete_Visitante' Visitante.id %}" class="btn btn-danger">Excluir</a>
+                      <a href="{% url 'update_Visitante' Visitante.id %}" class="btn btn-primary">Atualizar</a>
+                  </div>
+                </li>
+            {% endfor %}
+    </ul>
+        <div>
+        <a class="btn btn-primary" href="{% url 'create_Visitante' %}">Adicionar Visitante</a>
+        <a class="btn btn-light" href="{% url 'list_Morador' %}">Voltar</a>
+    </div>
+{% endblock %}

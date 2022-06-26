@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>Adicionar Morador</h2>
+<form method="POST" novalidate>
+        {% csrf_token %}
+          <div class="form-group">
+            {{ form.CPF |as_crispy_field }}
+          </div>
+          <div class="form-group">
+            {{ form.nome |as_crispy_field }}
+          </div>
+          <div class="form-group">
+            {{ form.telefone |as_crispy_field  }}
+          </div>
+          <div class="form-group">
+            {{ form.bloco |as_crispy_field  }}
+          </div>
+          <div class="form-group">
+            {{ form.dataDeNascimento |as_crispy_field  }}
+          </div>
+          <div class="form-group">
+            {{ form.numeroDoApartamento |as_crispy_field  }}
+          </div>
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <a class="btn btn-light" href="{% url 'list_Morador' %}">Cancelar</a>
+
+      </form>
+
+{% endblock %}

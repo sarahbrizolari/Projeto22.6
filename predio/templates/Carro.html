@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <ul>
+
+        <h2>Registro de Carros</h2>
+        {% for Carro in Carros %}
+
+                <li>
+                {{ Carro.modelo }} - {{ Carro.cor }} - {{ Carro.placa }} - {{ Carro.numeroDaVaga }}
+                 <div>
+                      <a href="{% url 'delete_Carro' Carro.id %}" class="btn btn-danger">Excluir</a>
+                      <a href="{% url 'update_Carro' Carro.id %}" class="btn btn-primary">Atualizar</a>
+                  </div>
+                </li>
+
+
+            {% endfor %}
+
+    </ul>
+        <div>
+        <a class="btn btn-primary" href="{% url 'create_Carro' %}">Adicionar Carro</a>
+        <a class="btn btn-light" href="{% url 'list_Morador' %}">Voltar</a>
+    </div>
+{% endblock %}
